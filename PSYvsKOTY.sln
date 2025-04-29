@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaPvK", "AplikacjaPvK\AplikacjaPvK.csproj", "{1B5E5A39-AFEF-40F8-8B1D-6C95BE976992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotekaPvK", "BibliotekaPvK\BibliotekaPvK.csproj", "{D2005946-77C8-451A-94B2-FC3DA1041FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B5E5A39-AFEF-40F8-8B1D-6C95BE976992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5E5A39-AFEF-40F8-8B1D-6C95BE976992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5E5A39-AFEF-40F8-8B1D-6C95BE976992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5E5A39-AFEF-40F8-8B1D-6C95BE976992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2005946-77C8-451A-94B2-FC3DA1041FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2005946-77C8-451A-94B2-FC3DA1041FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2005946-77C8-451A-94B2-FC3DA1041FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2005946-77C8-451A-94B2-FC3DA1041FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
