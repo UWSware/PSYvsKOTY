@@ -9,6 +9,15 @@ namespace BibliotekaPvK
 {
     public abstract class Zwierze
     {
+		private bool _czyBot;
+
+		public bool CzyBot
+		{
+			get { return _czyBot; }
+			set { _czyBot = value; }
+		}
+
+
 		private int _maksymalneHp;
 
 		public int MaksymalneHp
