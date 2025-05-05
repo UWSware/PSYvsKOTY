@@ -85,7 +85,7 @@ namespace BibliotekaPvK
 			{ if(z.Pancerz > 0)
 				{
                     z.Pancerz -= obrazeniaKoncowe;
-					if (z.Pancerz < 0)
+					if (z.Pancerz > 0)
 					{
 						z.Hp += z.Pancerz;
 						z.Pancerz = 0;
