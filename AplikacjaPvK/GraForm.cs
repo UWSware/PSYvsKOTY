@@ -175,11 +175,13 @@ namespace AplikacjaPvK
             {
                 if (gra.Kotek.Hp <= 0)
                 {
-                    wynik = "Porażka!";
+                    wynik = "💀 PORAŻKA! 💀";
+                    BibliotekaPvK.Gra.AktualizujWynik(false);
                 }
                 else
                 {
-                    wynik = "Zwycięstwo!";
+                    wynik = "🏆 ZWYCIĘSTWO! 🏆";
+                    BibliotekaPvK.Gra.AktualizujWynik(true);
                 }
             }
             else if (_wybranaPostac == TypPostaci.pies)
@@ -187,10 +189,12 @@ namespace AplikacjaPvK
                 if (gra.Piesek.Hp <= 0)
                 {
                     wynik = "💀 PORAŻKA! 💀";
+                    BibliotekaPvK.Gra.AktualizujWynik(true);
                 }
                 else
                 {
                     wynik = "🏆 ZWYCIĘSTWO! 🏆";
+                    BibliotekaPvK.Gra.AktualizujWynik(false);
                 }
             }
             WynikForm wynikForm = new WynikForm(wynik);

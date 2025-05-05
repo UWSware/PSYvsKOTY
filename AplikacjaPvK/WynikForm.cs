@@ -30,16 +30,29 @@ namespace AplikacjaPvK
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
-            //Label
+            // Label 1 
             Label etykieta = new Label();
-            etykieta.Text = napis;
+            etykieta.Text = napis; 
             etykieta.Font = new Font("Comic Sans MS", 24, FontStyle.Bold);
             etykieta.ForeColor = Color.Red;
             etykieta.BackColor = Color.Transparent;
             etykieta.TextAlign = ContentAlignment.MiddleCenter;
-            etykieta.Location = new Point(400, 200);
-            etykieta.Dock = DockStyle.Top;
+            etykieta.AutoSize = false;
+            etykieta.Size = new Size(this.ClientSize.Width, 60); 
+            etykieta.Location = new Point(0, 100); 
             this.Controls.Add(etykieta);
+
+            // Label 2 
+            Label etykieta2 = new Label();
+            etykieta2.Text = BibliotekaPvK.Gra.PokazWynik();
+            etykieta2.Font = new Font("Comic Sans MS", 18, FontStyle.Bold);
+            etykieta2.ForeColor = Color.Black;
+            etykieta2.BackColor = Color.Transparent;
+            etykieta2.TextAlign = ContentAlignment.MiddleCenter;
+            etykieta2.AutoSize = false;
+            etykieta2.Size = new Size(this.ClientSize.Width, 60); 
+            etykieta2.Location = new Point(0, 180); 
+            this.Controls.Add(etykieta2);
 
             //przycisk
             Button startButton = new Button();
