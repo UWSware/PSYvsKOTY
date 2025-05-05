@@ -40,7 +40,13 @@ namespace BibliotekaPvK
 			set { _bonusy = value; }
 		}
 
+		public Smiec LosujSmiecia()
+		{
+			Random rng = new Random();
+			int roll = rng.Next(0, 4);
+			return ListaSmieci[roll];
 
+		}
 
 
 		public Gra()
