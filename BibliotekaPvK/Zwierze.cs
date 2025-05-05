@@ -16,13 +16,31 @@ namespace BibliotekaPvK
 			set { _hp = value; }
 		}
 
-		private string _name;
+		private string _nazwa;
 
-		public string Name
+		public string Nazwa
 		{
-			get { return _name; }
-			set { _name = value; }
+			get { return _nazwa; }
+			set { _nazwa = value; }
 		}
+
+		private int _obrazenia;
+
+		public int Obrazenia
+		{
+			get { return _obrazenia; }
+			set { _obrazenia = value; }
+		}
+
+		private int myVar;
+
+		public int MyProperty
+		{
+			get { return myVar; }
+			set { myVar = value; }
+		}
+
+		public abstract void Atakuj(Zwierze z);
 
 
 	}
