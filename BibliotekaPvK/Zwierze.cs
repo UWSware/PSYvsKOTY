@@ -49,15 +49,17 @@ namespace BibliotekaPvK
 			set { _obrazenia = value; }
 		}
 
-		private int myVar;
+		private int _szansaNaTrafienie;
 
-		public int MyProperty
+		public int SzansaNaTrafienie
 		{
-			get { return myVar; }
-			set { myVar = value; }
+			get { return _szansaNaTrafienie; }
+			set { SzansaNaTrafienie = value; }
 		}
 
-		public abstract void Atakuj(Zwierze z);
+		public virtual void Atakuj(ref Zwierze z, Smiec s) {
+			//TODO: jak zejdzie hp na zero lub mniej to rzucic wyjątek albo wyjątkiem zakończyć gre i wrzucić na ekran startu
+		}
 
 		public delegate void bonus();
 
