@@ -79,11 +79,12 @@ namespace BibliotekaPvK
 
         public virtual void Atakuj(Zwierze z, Smiec s) {
 			int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
+			int obrazeniaKoncowe = z.Obrazenia + s.WartoscObrazen;
 			przedAtakiem?.Invoke(z);
 			if (CzyTrafi(szansaKoncowa))
 			{ if(z.Pancerz > 0)
 				{
-                    z.Pancerz -= this.Obrazenia;
+                    z.Pancerz -= obrazeniaKoncowe;
 					if (z.Pancerz < 0)
 					{
 						z.Hp += z.Pancerz;
