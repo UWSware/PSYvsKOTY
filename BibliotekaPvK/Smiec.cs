@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BibliotekaPvK
 {
-    public class Kot
+    public interface Smiec
     {
+
+
+
     }
 }
