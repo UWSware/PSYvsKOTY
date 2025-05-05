@@ -98,7 +98,8 @@ namespace BibliotekaPvK
                 if (z.Hp <= 0) throw new ZeroHpException("HP się skończyło! Koniec Gry");
 
             }
-			poAtaku?.Invoke(z);
+            if (z.Hp <= 0) throw new ZeroHpException("HP się skończyło! Koniec Gry");
+            poAtaku?.Invoke(z);
 				
 		}
 
