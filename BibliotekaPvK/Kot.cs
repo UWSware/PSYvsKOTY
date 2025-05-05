@@ -11,6 +11,10 @@ namespace BibliotekaPvK
         public Kot(int maksymalneHp, int hp, string nazwa, int obrazenia, int szansaNaTrafienie) : base(maksymalneHp, hp, nazwa, obrazenia, szansaNaTrafienie)
         {
         }
+        public Kot() : base()
+        {
+
+        }
 
         public override string ToString()
         {
