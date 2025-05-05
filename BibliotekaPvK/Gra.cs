@@ -51,8 +51,8 @@ namespace BibliotekaPvK
 
 		public Gra()
 		{
-			_kotek = new Kot(100, 100, "puszek", 8, 65);
-			_piesek = new Pies(100,100, "burek", 10, 50);
+			_kotek = new Kot(100, 100, "puszek", 13, 95);
+			_piesek = new Pies(100,100, "burek", 15, 80);
 			_listaSmieci = new List<Smiec>();
 			_listaSmieci.Add(new Smiec("Harnas", 10, 40));
             _listaSmieci.Add(new Smiec("Osci", 5, 50));
