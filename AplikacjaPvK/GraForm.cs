@@ -138,20 +138,27 @@ namespace AplikacjaPvK
                 Smiec smiec =gra.LosujSmiecia();
                 PokazSmieciaNadPostacia(smiec, TypPostaci.kot);
                 gra.Kotek.Atakuj(gra.Piesek, smiec);
+                gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
                 await Task.Delay(500);
+
                 Smiec smiec2 = gra.LosujSmiecia();
                 PokazSmieciaNadPostacia(smiec2, TypPostaci.pies);
                 gra.Piesek.Atakuj(gra.Kotek, smiec2);
+                gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec2);
             }
             else if (_wybranaPostac == TypPostaci.pies)
             {
                 Smiec smiec = gra.LosujSmiecia();
                 PokazSmieciaNadPostacia(smiec, TypPostaci.pies);
                 gra.Piesek.Atakuj(gra.Kotek, smiec);
+                gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec);
+
                 await Task.Delay(500);
+
                 Smiec smiec2 = gra.LosujSmiecia();
                 PokazSmieciaNadPostacia(smiec2, TypPostaci.kot);
                 gra.Kotek.Atakuj(gra.Piesek, smiec2);
+                gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
             }
         }
         private void DodajWyglad()
@@ -302,15 +309,6 @@ namespace AplikacjaPvK
             kwadrat2.Region = new Region(path5);
 
             this.Controls.Add(kwadrat2);
-
-            //bonusy
-            PictureBox imgbonus = new PictureBox();
-            imgbonus.Image = Properties.Resources.szansa2x;
-            imgbonus.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgbonus.Size = new Size(100, 100);
-            imgbonus.Location = new Point(500, 200);
-            imgbonus.BackColor = Color.Transparent;
-            this.Controls.Add(imgbonus);
         }
 
     }
