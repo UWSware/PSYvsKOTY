@@ -8,7 +8,7 @@ Okna:
 
 Klasy:
 1. Zwierze - abstrakcyjna ( pola: Nazwa, MaxHp, Pancerz, AktualneHp, Obrazenia, SzansaNaTrafienie
-							metody: virtual atakuj(Przeciwnik,�mie�) - obsluga zadawania obrazen i odejmowania hp u przeciwnika, wyjatek dla hp<0 
+							metody: virtual atakuj(Przeciwnik,smiec) - obsluga zadawania obrazen i odejmowania hp u przeciwnika, wyjatek dla hp<0 
 							delegaty: bonus)
 	Pies (*nadpisac ToString)
 	Kot (*nadpisac ToString) - wieksza szansa na trafienie i troche mniejsze obrazenia (*moze wstawic jakis statycny obrazek lub cos)
