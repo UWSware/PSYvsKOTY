@@ -5,19 +5,18 @@ Okna:
 	4 przyciski z bonusem (1- uzdrowienie, 2-podwojny rzut, 3-wieksza szansa na trafienie, 4-wieksze obrazenia, 5. dodatkowy pancerz na nast runde)
 	jak uda sie rzut to usmiechniety a drugi smuty i na odwrot. 
 4. Okno z napisem Zwyciestwo/Porazka i przycisk z resetem gry i idzie na 1 okno.
---Paulina
 
 Klasy:
 1. Zwierze - abstrakcyjna ( pola: Nazwa, MaxHp, Pancerz, AktualneHp, Obrazenia, SzansaNaTrafienie
-							metody: virtual atakuj(Przeciwnik,Œmieæ) - obsluga zadawania obrazen i odejmowania hp u przeciwnika, wyjatek dla hp<0 
+							metody: virtual atakuj(Przeciwnik,ï¿½mieï¿½) - obsluga zadawania obrazen i odejmowania hp u przeciwnika, wyjatek dla hp<0 
 							delegaty: bonus)
 	Pies (*nadpisac ToString)
 	Kot (*nadpisac ToString) - wieksza szansa na trafienie i troche mniejsze obrazenia (*moze wstawic jakis statycny obrazek lub cos)
 
-2. Œmieæ - klasa zwykla
-	Butelka po piwie (harnaœ) - wieksze obrazenia, mniejsza szansa na trafienie
-	Koœæ/oœæ - nic
-	Skórka po bananie - zmniejsza obrazenia, zniejsza szanse
+2. Smiec - klasa zwykla
+	Butelka po piwie (harnas) - wieksze obrazenia, mniejsza szansa na trafienie
+	Koï¿½ï¿½/oï¿½ï¿½ - nic
+	Skï¿½rka po bananie - zmniejsza obrazenia, zniejsza szanse
 	Zgnieciona puszka - mniejsze obrazenia, wieksze szansa na trafienie
 
 3. Bonus - interfejs 
@@ -29,10 +28,7 @@ Klasy:
 	Pancerz +pancerz na jedna runde
 
 4. Gra (zawierac wszystkie obiekty wyzej i zarzadzac gra)
-5. W³asny wyj¹tek - hp mniej ni¿ zero
---Mateusz 
+5. Wlasny wyjatek - hp mniej nie zero
 
 Po stronie apki:
 1. Klasa rozszerzeniowa (dodaje jakies wysietlenie okien itp)
-+obsluga wyjatku i delegatow 
---Paulina

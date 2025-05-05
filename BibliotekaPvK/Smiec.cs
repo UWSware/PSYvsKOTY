@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotekaPvK
 {
-    public interface Smiec
+    public class Smiec
     {
 
 
