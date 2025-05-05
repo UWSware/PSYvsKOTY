@@ -22,6 +22,8 @@ namespace AplikacjaPvK
         private PictureBox imgPies;
         private Panel pasekKotaTlo;
         private Panel pasekPsaTlo;
+        private PictureBox smiecImgKot;
+        private PictureBox smiecImgPies;
 
         public TypPostaci WybranaPostac
         {
@@ -82,18 +84,74 @@ namespace AplikacjaPvK
                 pasekKota.Width = szerokosc;
             }
         }
-        public void Atakuj()
+        public void PokazSmieciaNadPostacia(Smiec smiec, TypPostaci typ)
+        {
+            PictureBox targetBox = null;
+            if (typ == TypPostaci.kot)
+            {
+                targetBox = smiecImgKot;
+            }
+            else if (typ == TypPostaci.pies)
+            {
+                targetBox = smiecImgPies;
+            }
+
+            switch (smiec.Nazwa.ToLower())
+            {
+                case "skorka po bananie":
+                    targetBox.Image = Properties.Resources.Banan2x;
+                    break;
+                case "harnas":
+                    targetBox.Image = Properties.Resources.Warstwa_32x;
+                    break;
+                case "zgnieciona puszka":
+                    targetBox.Image = Properties.Resources.Warstwa_22x;
+                    break;
+                case "kosc":
+                    targetBox.Image = Properties.Resources.Zasob_62x;
+                    break;
+                case "osci":
+                    targetBox.Image = Properties.Resources.Zasob_72x;
+                    break;
+                default:
+                    targetBox.Image = null;
+                    break;
+            }
+
+            targetBox.Visible = true;
+
+            var timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += (s, e) =>
+            {
+                targetBox.Visible = false;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
+        }
+
+        public async void Atakuj()
         {
             if (_wybranaPostac == TypPostaci.kot)
             {
                 Smiec smiec =gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec, TypPostaci.kot);
                 gra.Kotek.Atakuj(gra.Piesek, smiec);
-                Console.WriteLine($"===HP:{gra.Piesek.Hp}");
+                await Task.Delay(500);
+                Smiec smiec2 = gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec2, TypPostaci.pies);
+                gra.Piesek.Atakuj(gra.Kotek, smiec2);
             }
             else if (_wybranaPostac == TypPostaci.pies)
             {
                 Smiec smiec = gra.LosujSmiecia();
-                gra.Kotek.Atakuj(gra.Kotek, smiec);
+                PokazSmieciaNadPostacia(smiec, TypPostaci.pies);
+                gra.Piesek.Atakuj(gra.Kotek, smiec);
+                await Task.Delay(500);
+                Smiec smiec2 = gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec2, TypPostaci.kot);
+                gra.Kotek.Atakuj(gra.Piesek, smiec2);
             }
         }
         private void DodajWyglad()
@@ -125,6 +183,21 @@ namespace AplikacjaPvK
             imgPies.BackColor = Color.Transparent;
             this.Controls.Add(imgPies);
 
+            //smieci
+            smiecImgKot = new PictureBox();
+            smiecImgKot.SizeMode = PictureBoxSizeMode.Zoom;
+            smiecImgKot.Size = new Size(70, 70);
+            smiecImgKot.Location = new Point(150, 240);
+            smiecImgKot.BackColor = Color.Transparent;
+            this.Controls.Add(smiecImgKot);
+
+            smiecImgPies = new PictureBox();
+            smiecImgPies.SizeMode = PictureBoxSizeMode.Zoom;
+            smiecImgPies.Size = new Size(50, 70);
+            smiecImgPies.Location = new Point(1050, 240);
+            smiecImgPies.BackColor = Color.Transparent;
+            this.Controls.Add(smiecImgPies);
+
             //przycisk "Rzut"
             Button btnRzut = new Button();
             btnRzut.Text = "RZUT";
@@ -132,7 +205,8 @@ namespace AplikacjaPvK
             if (_wybranaPostac == TypPostaci.kot)
             {
                 btnRzut.Location = new Point(130, 330);
-            }else if(_wybranaPostac == TypPostaci.pies)
+            }
+            else if(_wybranaPostac == TypPostaci.pies)
             {
                 btnRzut.Location = new Point(1030, 330);
             }
