@@ -83,6 +83,16 @@ namespace AplikacjaPvK.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap szansa2x {
+            get {
+                object obj = ResourceManager.GetObject("szansa2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tlo {
             get {
                 object obj = ResourceManager.GetObject("Tlo", resourceCulture);

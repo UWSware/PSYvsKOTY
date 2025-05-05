@@ -77,16 +77,17 @@ namespace BibliotekaPvK
             _szansaNaTrafienie = szansaNaTrafienie;
         }
 
-        public virtual void Atakuj(ref Zwierze z, Smiec s) {
+        public virtual void Atakuj(Zwierze z, Smiec s) {
 			int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
 			przedAtakiem?.Invoke(z);
 			if (CzyTrafi(szansaKoncowa))
-			{ if(z.Pancerz == 0)
+			{ if(z.Pancerz > 0)
 				{
                     z.Pancerz -= this.Obrazenia;
 					if (z.Pancerz < 0)
 					{
 						z.Hp += z.Pancerz;
+						z.Pancerz = 0;
 					}
 				}
 				else

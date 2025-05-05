@@ -36,7 +36,8 @@ namespace AplikacjaPvK
         }
         private void Gra()
         {
-            
+            gra.Kotek.poAtaku += UstawZdrowie;
+            gra.Piesek.poAtaku += UstawZdrowie;
         }
         public void UstawZdrowie(Zwierze zwierze)
         {
@@ -49,6 +50,19 @@ namespace AplikacjaPvK
             {
                 int szerokosc = (int)(pasekKota.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
                 pasekKota.Width = szerokosc;
+            }
+        }
+        public void Atakuj()
+        {
+            if (_wybranaPostac == TypPostaci.kot)
+            {
+                Smiec smiec =gra.LosujSmiecia();
+                gra.Kotek.Atakuj(gra.Piesek, smiec);
+            }
+            else if (_wybranaPostac == TypPostaci.pies)
+            {
+                Smiec smiec = gra.LosujSmiecia();
+                gra.Kotek.Atakuj(gra.Kotek, smiec);
             }
         }
         private void DodajWyglad()
@@ -92,6 +106,10 @@ namespace AplikacjaPvK
                 btnRzut.Location = new Point(1030, 330);
             }
 
+            btnRzut.Click += (sender, e) =>
+            {
+                Atakuj();
+            };
             btnRzut.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
             btnRzut.BackColor = ColorTranslator.FromHtml("#FF0000");
             btnRzut.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
@@ -179,6 +197,15 @@ namespace AplikacjaPvK
             kwadrat2.Region = new Region(path5);
 
             this.Controls.Add(kwadrat2);
+
+            //bonusy
+            PictureBox imgbonus = new PictureBox();
+            imgbonus.Image = Properties.Resources.szansa2x;
+            imgbonus.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgbonus.Size = new Size(100, 100);
+            imgbonus.Location = new Point(500, 200);
+            imgbonus.BackColor = Color.Transparent;
+            this.Controls.Add(imgbonus);
         }
 
     }

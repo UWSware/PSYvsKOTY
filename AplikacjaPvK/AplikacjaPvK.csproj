@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\szansa2x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\szansa2x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BibliotekaPvK\BibliotekaPvK.csproj" />
   </ItemGroup>
 
