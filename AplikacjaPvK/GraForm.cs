@@ -15,6 +15,9 @@ namespace AplikacjaPvK
     public partial class GraForm : Form
     {
         private TypPostaci _wybranaPostac;
+        private Gra gra;
+        private Panel pasekKota;
+        private Panel pasekPsa;
 
         public TypPostaci WybranaPostac
         {
@@ -26,8 +29,14 @@ namespace AplikacjaPvK
         {
             InitializeComponent();
             this._wybranaPostac=postac;
+            gra = new Gra();
             DodajWyglad();
             this.FormClosed += (s, e) => Application.Exit();
+            Gra();
+        }
+        private void Gra()
+        {
+            
         }
 
         private void DodajWyglad()
@@ -87,6 +96,70 @@ namespace AplikacjaPvK
 
             btnRzut.Region = new Region(path2);
             this.Controls.Add(btnRzut);
+
+            //paski zdrowia --KOT
+            Panel pasekKotaTlo = new Panel();
+            pasekKotaTlo.Size = new Size(450,50);
+            pasekKotaTlo.Location = new Point(140, 50);
+            pasekKotaTlo.BackColor = ColorTranslator.FromHtml("#eac276");
+            pasekKotaTlo.BorderStyle = BorderStyle.None;
+            cornerRadius = 40;
+            GraphicsPath path3 = new GraphicsPath();
+            path3.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path3.AddArc(pasekKotaTlo.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path3.AddArc(pasekKotaTlo.Width - cornerRadius, pasekKotaTlo.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path3.AddArc(0, pasekKotaTlo.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path3.CloseFigure();
+
+            pasekKotaTlo.Region = new Region(path3);
+            this.Controls.Add(pasekKotaTlo);
+            pasekKota = new Panel();
+
+
+            //paski zdrowia --PIES
+            Panel pasekPsaTlo = new Panel();
+            pasekPsaTlo.Size = new Size(450, 50);
+            pasekPsaTlo.Location = new Point(670, 50);
+            pasekPsaTlo.BackColor = ColorTranslator.FromHtml("#eac276");
+            pasekPsaTlo.BorderStyle = BorderStyle.None;
+            pasekPsaTlo.Region = new Region(path3);
+            this.Controls.Add(pasekPsaTlo);
+            pasekKota = new Panel();
+
+            //panel po srodku -- dla wygladu tylko
+            Panel kwadrat = new Panel();
+            kwadrat.Size = new Size(1020, 70);
+            kwadrat.Location = new Point(120, 40);
+            kwadrat.BackColor = ColorTranslator.FromHtml("#b35b34");
+            kwadrat.BorderStyle = BorderStyle.None;
+
+            GraphicsPath path4 = new GraphicsPath();
+            path4.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path4.AddArc(kwadrat.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path4.AddArc(kwadrat.Width - cornerRadius, kwadrat.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path4.AddArc(0, kwadrat.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path4.CloseFigure();
+
+            kwadrat.Region = new Region(path4);
+
+            this.Controls.Add(kwadrat);
+
+            Panel kwadrat2 = new Panel();
+            kwadrat2.Size = new Size(1030, 80);
+            kwadrat2.Location = new Point(115, 35);
+            kwadrat2.BackColor = ColorTranslator.FromHtml("#000000");
+            kwadrat2.BorderStyle = BorderStyle.None;
+
+            GraphicsPath path5 = new GraphicsPath();
+            path5.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path5.AddArc(kwadrat2.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path5.AddArc(kwadrat2.Width - cornerRadius, kwadrat2.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path5.AddArc(0, kwadrat2.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path5.CloseFigure();
+
+            kwadrat2.Region = new Region(path5);
+
+            this.Controls.Add(kwadrat2);
         }
 
     }
