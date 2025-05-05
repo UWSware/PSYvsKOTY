@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotekaPvK
 {
-    public interface Bonus
+    public interface BonusInterfejs
     {
         public void Zastosuj(Zwierze z);
         bool CzyUzyte {  get; }
