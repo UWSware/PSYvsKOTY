@@ -9,7 +9,24 @@ namespace BibliotekaPvK
     public class Smiec
     {
 
+		private int _wartoscObrazen;
+
+		public int WartoscObrazen
+		{
+			get { return _wartoscObrazen; }
+			set { _wartoscObrazen = value; }
+		}
+
+		private int _wartoscSzansy;
+
+		public int WartoscSzansy
+		{
+			get { return _wartoscSzansy; }
+			set { _wartoscSzansy = value; }
+		}
 
 
-    }
+
+
+	}
 }

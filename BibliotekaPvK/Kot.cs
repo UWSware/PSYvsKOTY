@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BibliotekaPvK
 {
-    public class Kot
+    public class Kot : Zwierze
     {
+
+        public override string ToString()
+        {
+            return $"Kot {Nazwa}, Maksymalne HP: {MaksymalneHp}, Obecne Hp: {Hp}, Obrazenia: {Obrazenia}, Szansa na trafienie: {SzansaNaTrafienie}";
+        }
     }
 }

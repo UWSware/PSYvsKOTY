@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,9 +59,24 @@ namespace BibliotekaPvK
 		}
 
 		public virtual void Atakuj(ref Zwierze z, Smiec s) {
-			//TODO: jak zejdzie hp na zero lub mniej to rzucic wyjątek albo wyjątkiem zakończyć gre i wrzucić na ekran startu
+			/* TODO: jak zejdzie hp na zero lub mniej 
+					 to rzucic wyjątek albo wyjątkiem 
+					 zakończyć gre i wrzucić na ekran startu */
+				int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
+			if (CzyTrafi(szansaKoncowa))
+			{
+				z.Hp -= this.Obrazenia;
+				if (z.Hp <= 0) throw new ZeroHpException("HP się skończyło! Koniec Gry");
+			}
+				
 		}
 
+		public bool CzyTrafi(int szansaNaTrafienie)
+		{
+			Random rng = new Random();
+			int roll = rng.Next(0, 100);
+			return roll<szansaNaTrafienie;
+		}
 		public delegate void bonus();
 
 
