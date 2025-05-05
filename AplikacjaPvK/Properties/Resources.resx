@@ -133,4 +133,34 @@
   <data name="szansa2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\szansa2x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Banan2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banan2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pancerz2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pancerz2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="szansa2x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\szansa2x2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warstwa_1_42x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warstwa_1_42x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warstwa_1_52x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warstwa_1_52x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warstwa_12x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warstwa_12x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warstwa_22x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warstwa_22x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warstwa_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warstwa_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zasob_62x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zasob_62x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zasob_72x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zasob_72x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

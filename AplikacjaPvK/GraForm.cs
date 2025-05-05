@@ -18,6 +18,12 @@ namespace AplikacjaPvK
         private Gra gra;
         private Panel pasekKota;
         private Panel pasekPsa;
+        private PictureBox imgKot;
+        private PictureBox imgPies;
+        private Panel pasekKotaTlo;
+        private Panel pasekPsaTlo;
+        private PictureBox smiecImgKot;
+        private PictureBox smiecImgPies;
 
         public TypPostaci WybranaPostac
         {
@@ -38,31 +44,114 @@ namespace AplikacjaPvK
         {
             gra.Kotek.poAtaku += UstawZdrowie;
             gra.Piesek.poAtaku += UstawZdrowie;
+            gra.Kotek.przedAtakiem += Miganie;
+            gra.Piesek.przedAtakiem += Miganie;
         }
+        public void Miganie(Zwierze z)
+        {
+            Control kontrolka = null;
+
+            if (z is Pies) kontrolka = imgPies;
+            else if (z is Kot) kontrolka = imgKot;
+
+            if (kontrolka != null)
+            {
+                Color oryginalny = kontrolka.BackColor;
+                kontrolka.BackColor = Color.Red;
+
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 150;
+                timer.Tick += (s, e) =>
+                {
+                    kontrolka.BackColor = oryginalny;
+                    timer.Stop();
+                    timer.Dispose();
+                };
+                timer.Start();
+            }
+        }
+
         public void UstawZdrowie(Zwierze zwierze)
         {
             if (zwierze is Pies)
             {
-                int szerokosc = (int)(pasekPsa.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
+                int szerokosc = (int)(pasekPsaTlo.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
                 pasekPsa.Width = szerokosc;
             }
             else if (zwierze is Kot)
             {
-                int szerokosc = (int)(pasekKota.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
+                int szerokosc = (int)(pasekKotaTlo.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
                 pasekKota.Width = szerokosc;
             }
         }
-        public void Atakuj()
+        public void PokazSmieciaNadPostacia(Smiec smiec, TypPostaci typ)
+        {
+            PictureBox targetBox = null;
+            if (typ == TypPostaci.kot)
+            {
+                targetBox = smiecImgKot;
+            }
+            else if (typ == TypPostaci.pies)
+            {
+                targetBox = smiecImgPies;
+            }
+
+            switch (smiec.Nazwa.ToLower())
+            {
+                case "skorka po bananie":
+                    targetBox.Image = Properties.Resources.Banan2x;
+                    break;
+                case "harnas":
+                    targetBox.Image = Properties.Resources.Warstwa_32x;
+                    break;
+                case "zgnieciona puszka":
+                    targetBox.Image = Properties.Resources.Warstwa_22x;
+                    break;
+                case "kosc":
+                    targetBox.Image = Properties.Resources.Zasob_62x;
+                    break;
+                case "osci":
+                    targetBox.Image = Properties.Resources.Zasob_72x;
+                    break;
+                default:
+                    targetBox.Image = null;
+                    break;
+            }
+
+            targetBox.Visible = true;
+
+            var timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += (s, e) =>
+            {
+                targetBox.Visible = false;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
+        }
+
+        public async void Atakuj()
         {
             if (_wybranaPostac == TypPostaci.kot)
             {
                 Smiec smiec =gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec, TypPostaci.kot);
                 gra.Kotek.Atakuj(gra.Piesek, smiec);
+                await Task.Delay(500);
+                Smiec smiec2 = gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec2, TypPostaci.pies);
+                gra.Piesek.Atakuj(gra.Kotek, smiec2);
             }
             else if (_wybranaPostac == TypPostaci.pies)
             {
                 Smiec smiec = gra.LosujSmiecia();
-                gra.Kotek.Atakuj(gra.Kotek, smiec);
+                PokazSmieciaNadPostacia(smiec, TypPostaci.pies);
+                gra.Piesek.Atakuj(gra.Kotek, smiec);
+                await Task.Delay(500);
+                Smiec smiec2 = gra.LosujSmiecia();
+                PokazSmieciaNadPostacia(smiec2, TypPostaci.kot);
+                gra.Kotek.Atakuj(gra.Piesek, smiec2);
             }
         }
         private void DodajWyglad()
@@ -77,7 +166,7 @@ namespace AplikacjaPvK
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
             //kot
-            PictureBox imgKot = new PictureBox();
+            imgKot = new PictureBox();
             imgKot.Image = Properties.Resources.Kot;
             imgKot.SizeMode = PictureBoxSizeMode.StretchImage;
             imgKot.Size = new Size(180, 250);
@@ -86,13 +175,28 @@ namespace AplikacjaPvK
             this.Controls.Add(imgKot);
 
             //pies
-            PictureBox imgPies = new PictureBox();
+            imgPies = new PictureBox();
             imgPies.Image = Properties.Resources.Pies__3_;
             imgPies.SizeMode = PictureBoxSizeMode.StretchImage;
             imgPies.Size = new Size(180, 250);
             imgPies.Location = new Point(1000, 370);
             imgPies.BackColor = Color.Transparent;
             this.Controls.Add(imgPies);
+
+            //smieci
+            smiecImgKot = new PictureBox();
+            smiecImgKot.SizeMode = PictureBoxSizeMode.Zoom;
+            smiecImgKot.Size = new Size(70, 70);
+            smiecImgKot.Location = new Point(150, 240);
+            smiecImgKot.BackColor = Color.Transparent;
+            this.Controls.Add(smiecImgKot);
+
+            smiecImgPies = new PictureBox();
+            smiecImgPies.SizeMode = PictureBoxSizeMode.Zoom;
+            smiecImgPies.Size = new Size(50, 70);
+            smiecImgPies.Location = new Point(1050, 240);
+            smiecImgPies.BackColor = Color.Transparent;
+            this.Controls.Add(smiecImgPies);
 
             //przycisk "Rzut"
             Button btnRzut = new Button();
@@ -101,7 +205,8 @@ namespace AplikacjaPvK
             if (_wybranaPostac == TypPostaci.kot)
             {
                 btnRzut.Location = new Point(130, 330);
-            }else if(_wybranaPostac == TypPostaci.pies)
+            }
+            else if(_wybranaPostac == TypPostaci.pies)
             {
                 btnRzut.Location = new Point(1030, 330);
             }
@@ -128,7 +233,7 @@ namespace AplikacjaPvK
             this.Controls.Add(btnRzut);
 
             //paski zdrowia --KOT
-            Panel pasekKotaTlo = new Panel();
+            pasekKotaTlo = new Panel();
             pasekKotaTlo.Size = new Size(450,50);
             pasekKotaTlo.Location = new Point(140, 50);
             pasekKotaTlo.BackColor = ColorTranslator.FromHtml("#eac276");
@@ -150,7 +255,7 @@ namespace AplikacjaPvK
             pasekKotaTlo.Controls.Add(pasekKota);
 
             //paski zdrowia --PIES
-            Panel pasekPsaTlo = new Panel();
+            pasekPsaTlo = new Panel();
             pasekPsaTlo.Size = new Size(450, 50);
             pasekPsaTlo.Location = new Point(670, 50);
             pasekPsaTlo.BackColor = ColorTranslator.FromHtml("#eac276");

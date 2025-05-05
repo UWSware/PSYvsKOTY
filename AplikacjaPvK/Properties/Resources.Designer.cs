@@ -63,9 +63,29 @@ namespace AplikacjaPvK.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Banan2x {
+            get {
+                object obj = ResourceManager.GetObject("Banan2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kot {
             get {
                 object obj = ResourceManager.GetObject("Kot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pancerz2x {
+            get {
+                object obj = ResourceManager.GetObject("pancerz2x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,6 +113,16 @@ namespace AplikacjaPvK.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap szansa2x1 {
+            get {
+                object obj = ResourceManager.GetObject("szansa2x1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tlo {
             get {
                 object obj = ResourceManager.GetObject("Tlo", resourceCulture);
@@ -106,6 +136,76 @@ namespace AplikacjaPvK.Properties {
         internal static System.Drawing.Bitmap Tlo__2__0_5x {
             get {
                 object obj = ResourceManager.GetObject("Tlo (2)@0.5x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warstwa_1_42x {
+            get {
+                object obj = ResourceManager.GetObject("Warstwa_1_42x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warstwa_1_52x {
+            get {
+                object obj = ResourceManager.GetObject("Warstwa_1_52x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warstwa_12x {
+            get {
+                object obj = ResourceManager.GetObject("Warstwa_12x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warstwa_22x {
+            get {
+                object obj = ResourceManager.GetObject("Warstwa_22x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warstwa_32x {
+            get {
+                object obj = ResourceManager.GetObject("Warstwa_32x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zasob_62x {
+            get {
+                object obj = ResourceManager.GetObject("Zasob_62x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zasob_72x {
+            get {
+                object obj = ResourceManager.GetObject("Zasob_72x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
