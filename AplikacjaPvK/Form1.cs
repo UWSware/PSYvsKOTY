@@ -6,6 +6,7 @@ namespace AplikacjaPvK
         public Form1()
         {
             InitializeComponent();
+            //test polaczenia
         }
     }
 }
