@@ -133,33 +133,69 @@ namespace AplikacjaPvK
 
         public async void Atakuj()
         {
+            try
+            {
+                if (_wybranaPostac == TypPostaci.kot)
+                {
+                    Smiec smiec = gra.LosujSmiecia();
+                    PokazSmieciaNadPostacia(smiec, TypPostaci.kot);
+                    gra.Kotek.Atakuj(gra.Piesek, smiec);
+                    gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
+                    await Task.Delay(500);
+
+                    Smiec smiec2 = gra.LosujSmiecia();
+                    PokazSmieciaNadPostacia(smiec2, TypPostaci.pies);
+                    gra.Piesek.Atakuj(gra.Kotek, smiec2);
+                    gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec2);
+                }
+                else if (_wybranaPostac == TypPostaci.pies)
+                {
+                    Smiec smiec = gra.LosujSmiecia();
+                    PokazSmieciaNadPostacia(smiec, TypPostaci.pies);
+                    gra.Piesek.Atakuj(gra.Kotek, smiec);
+                    gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec);
+
+                    await Task.Delay(500);
+
+                    Smiec smiec2 = gra.LosujSmiecia();
+                    PokazSmieciaNadPostacia(smiec2, TypPostaci.kot);
+                    gra.Kotek.Atakuj(gra.Piesek, smiec2);
+                    gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
+                }
+            }
+            catch (ZeroHpException ex)
+            {
+                PokazEkranKoncowy();
+            }
+        }
+        private void PokazEkranKoncowy()
+        {
+            string wynik = "";
             if (_wybranaPostac == TypPostaci.kot)
             {
-                Smiec smiec =gra.LosujSmiecia();
-                PokazSmieciaNadPostacia(smiec, TypPostaci.kot);
-                gra.Kotek.Atakuj(gra.Piesek, smiec);
-                gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
-                await Task.Delay(500);
-
-                Smiec smiec2 = gra.LosujSmiecia();
-                PokazSmieciaNadPostacia(smiec2, TypPostaci.pies);
-                gra.Piesek.Atakuj(gra.Kotek, smiec2);
-                gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec2);
+                if (gra.Kotek.Hp <= 0)
+                {
+                    wynik = "Porażka!";
+                }
+                else
+                {
+                    wynik = "Zwycięstwo!";
+                }
             }
             else if (_wybranaPostac == TypPostaci.pies)
             {
-                Smiec smiec = gra.LosujSmiecia();
-                PokazSmieciaNadPostacia(smiec, TypPostaci.pies);
-                gra.Piesek.Atakuj(gra.Kotek, smiec);
-                gra.Kotek.PokazInformacjePrzedAtakiem(gra.Piesek, smiec);
-
-                await Task.Delay(500);
-
-                Smiec smiec2 = gra.LosujSmiecia();
-                PokazSmieciaNadPostacia(smiec2, TypPostaci.kot);
-                gra.Kotek.Atakuj(gra.Piesek, smiec2);
-                gra.Piesek.PokazInformacjePrzedAtakiem(gra.Kotek, smiec);
+                if (gra.Piesek.Hp <= 0)
+                {
+                    wynik = "💀 PORAŻKA! 💀";
+                }
+                else
+                {
+                    wynik = "🏆 ZWYCIĘSTWO! 🏆";
+                }
             }
+            WynikForm wynikForm = new WynikForm(wynik);
+            wynikForm.Show();
+            this.Hide();
         }
         private void DodajWyglad()
         {
