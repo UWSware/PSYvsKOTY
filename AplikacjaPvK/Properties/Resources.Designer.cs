@@ -63,6 +63,26 @@ namespace AplikacjaPvK.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Kot {
+            get {
+                object obj = ResourceManager.GetObject("Kot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pies__3_ {
+            get {
+                object obj = ResourceManager.GetObject("Pies (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tlo__2_ {
             get {
                 object obj = ResourceManager.GetObject("Tlo (2)", resourceCulture);
