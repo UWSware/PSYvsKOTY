@@ -17,12 +17,12 @@ namespace BibliotekaPvK
 			set { _maksymalneHp = value; }
 		}
 
-		private int _pancerze;
+		private int _pancerz;
 
 		public int Pancerz
 		{
-			get { return _pancerze; }
-			set { _pancerze = value; }
+			get { return _pancerz; }
+			set { _pancerz = value; }
 		}
 
 
@@ -58,10 +58,17 @@ namespace BibliotekaPvK
 			set { SzansaNaTrafienie = value; }
 		}
 
-		public virtual void Atakuj(ref Zwierze z, Smiec s) {
-			/* TODO: jak zejdzie hp na zero lub mniej 
-					 to rzucic wyjątek albo wyjątkiem 
-					 zakończyć gre i wrzucić na ekran startu */
+        protected Zwierze(int maksymalneHp, int hp, string nazwa, int obrazenia, int szansaNaTrafienie)
+        {
+            _maksymalneHp = maksymalneHp;
+            _pancerz = 0;
+            _hp = hp;
+            _nazwa = nazwa;
+            _obrazenia = obrazenia;
+            _szansaNaTrafienie = szansaNaTrafienie;
+        }
+
+        public virtual void Atakuj(ref Zwierze z, Smiec s) {
 				int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
 			if (CzyTrafi(szansaKoncowa))
 			{

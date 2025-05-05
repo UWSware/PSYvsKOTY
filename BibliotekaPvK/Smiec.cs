@@ -25,8 +25,10 @@ namespace BibliotekaPvK
 			set { _wartoscSzansy = value; }
 		}
 
-
-
-
-	}
+        public Smiec(int wartoscObrazen, int wartoscSzansy)
+        {
+            _wartoscObrazen = wartoscObrazen;
+            _wartoscSzansy = wartoscSzansy;
+        }
+    }
 }

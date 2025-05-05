@@ -26,9 +26,8 @@ namespace BibliotekaPvK
 
 		public Gra()
 		{
-			_kotek = new Kot();
-			_piesek = new Pies();
-
+			_kotek = new Kot(100, 100, "puszek", 8, 65);
+			_piesek = new Pies(100,100, "burek", 10, 50);
 		}
 	}
 }
