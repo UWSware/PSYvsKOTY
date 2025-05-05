@@ -32,6 +32,16 @@ namespace BibliotekaPvK
 			set { _listaSmieci = value; }
 		}
 
+		private ListaBonusow _bonusy;
+
+		public ListaBonusow Bonusy
+		{
+			get { return _bonusy; }
+			set { _bonusy = value; }
+		}
+
+
+
 
 		public Gra()
 		{
@@ -43,6 +53,12 @@ namespace BibliotekaPvK
             _listaSmieci.Add(new Smiec("Kosc", 5, 50));
             _listaSmieci.Add(new Smiec("Zgnieciona Puszka", 4, 60));
             _listaSmieci.Add(new Smiec("Skorka po bananie", 4, 30));
+			Bonusy = new ListaBonusow();
+			Bonusy.Add(new Bonus2xObrazen());
+            Bonusy.Add(new Bonus2xSzansaTrafienia());
+            Bonusy.Add(new BonusZdrowia());
+            Bonusy.Add(new BonusPancerza());
+
 
         }
 	}
