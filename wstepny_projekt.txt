@@ -30,6 +30,7 @@ Klasy:
 
 4. Gra (zawierac wszystkie obiekty wyzej i zarzadzac gra)
 5. Wlasny wyjatek - hp mniej nie zero
+--Mateusz
 
 Po stronie apki:
 1. Klasa rozszerzeniowa (dodaje jakies wysietlenie okien itp)
