@@ -21,6 +21,7 @@ namespace AplikacjaPvK
 
         public void DodajWyglad()
         {
+            this.Text = "PIES vs KOT";
             //tlo
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
