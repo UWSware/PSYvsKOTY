@@ -93,7 +93,7 @@ namespace AplikacjaPvK
             }
 
             btnRzut.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-            btnRzut.BackColor = ColorTranslator.FromHtml("#FF5722");
+            btnRzut.BackColor = ColorTranslator.FromHtml("#FF0000");
             btnRzut.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
             btnRzut.FlatStyle = FlatStyle.Flat;
             btnRzut.FlatAppearance.BorderSize = 0;
@@ -149,7 +149,7 @@ namespace AplikacjaPvK
             Panel kwadrat = new Panel();
             kwadrat.Size = new Size(1020, 70);
             kwadrat.Location = new Point(120, 40);
-            kwadrat.BackColor = ColorTranslator.FromHtml("#b35b34");
+            kwadrat.BackColor = ColorTranslator.FromHtml("#e8bb62");
             kwadrat.BorderStyle = BorderStyle.None;
 
             GraphicsPath path4 = new GraphicsPath();
