@@ -93,18 +93,18 @@ namespace BibliotekaPvK
             string wynikJson = JsonSerializer.Serialize(wynik, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(plik, wynikJson);
         }
-        public static void PokazWynik()
+        public static string PokazWynik()
         {
             if (File.Exists("wynik.json"))
             {
                 var json = File.ReadAllText("wynik.json");
                 var wynik = JsonSerializer.Deserialize<WynikiGry>(json);
 
-                Console.WriteLine($"Kot: {wynik.WygraneKota} | Pies: {wynik.WygranePsa}");
+                return $"Kot: {wynik.WygraneKota} | Pies: {wynik.WygranePsa}";
             }
             else
             {
-                Console.WriteLine("Brak wyników.");
+                return "Brak wyników.";
             }
         }
     }
