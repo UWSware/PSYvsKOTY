@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotekaPvK;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,7 +62,7 @@ namespace AplikacjaPvK
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.AutoSize = true;
             label.Location = new Point(
-                    (panel.Width - label.PreferredWidth) / 2, 30 );
+                    (panel.Width - label.PreferredWidth) / 2, 40 );
             panel.Controls.Add(label);
 
 
@@ -96,7 +97,7 @@ namespace AplikacjaPvK
 
             btnKot.Click += (sender, e) =>
             {
-                GraForm graForm = new GraForm("Pies");
+                GraForm graForm = new GraForm(TypPostaci.kot);
                 graForm.Show();
                 this.Hide();
             };
@@ -132,7 +133,7 @@ namespace AplikacjaPvK
 
             btnPies.Click += (sender, e) =>
             {
-                GraForm graForm = new GraForm("Pies");
+                GraForm graForm = new GraForm(TypPostaci.pies);
                 graForm.Show();
                 this.Hide();
             };
