@@ -8,18 +8,25 @@ Okna:
 --Paulina
 
 Klasy:
+======================================================
 1. Zwierze - abstrakcyjna ( pola: Nazwa, MaxHp, Pancerz, AktualneHp, Obrazenia, SzansaNaTrafienie
 							metody: virtual atakuj(Przeciwnik,smiec) - obsluga zadawania obrazen i odejmowania hp u przeciwnika, wyjatek dla hp<0 
 							delegaty: bonus)
-	Pies (*nadpisac ToString)
+	Pies (*nadpisac ToString) - Zrobione
 	Kot (*nadpisac ToString) - wieksza szansa na trafienie i troche mniejsze obrazenia (*moze wstawic jakis statycny obrazek lub cos)
 
-2. Smiec - klasa zwykla
-	Butelka po piwie (harnas) - wieksze obrazenia, mniejsza szansa na trafienie
-	Ko��/o�� - nic
-	Sk�rka po bananie - zmniejsza obrazenia, zniejsza szanse
-	Zgnieciona puszka - mniejsze obrazenia, wieksze szansa na trafienie
+=========================== Zrobione Chyba============
 
+======================================================
+2. Smiec - klasa zwykla
+	Butelka po piwie (harnaś) - wieksze obrazenia, mniejsza szansa na trafienie
+	Ko  /o   - nic
+	Sk rka po bananie - zmniejsza obrazenia, zniejsza szanse
+	Zgnieciona puszka - mniejsze obrazenia, wieksze szansa na trafienie	
+
+=========================== Zrobione =================
+
+======================================================
 3. Bonus - interfejs 
 	Enum TypBonusu (ofensywne,defensywne)
 	Uzdrowienie +hp
@@ -28,8 +35,13 @@ Klasy:
 	WiekszeObrazenia +obrazenia
 	Pancerz +pancerz na jedna runde
 
+=============== Zrobione oprócz podwojnego rzutu ====
+
 4. Gra (zawierac wszystkie obiekty wyzej i zarzadzac gra)
+
+======================================================
 5. Wlasny wyjatek - hp mniej nie zero
+=========================== Zrobione =================
 --Mateusz
 
 Po stronie apki:

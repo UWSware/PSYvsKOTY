@@ -69,12 +69,25 @@ namespace BibliotekaPvK
         }
 
         public virtual void Atakuj(ref Zwierze z, Smiec s) {
-				int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
+			int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
+			beforeHit?.Invoke(z);
 			if (CzyTrafi(szansaKoncowa))
-			{
-				z.Hp -= this.Obrazenia;
-				if (z.Hp <= 0) throw new ZeroHpException("HP się skończyło! Koniec Gry");
-			}
+			{ if(z.Pancerz == 0)
+				{
+                    z.Pancerz -= this.Obrazenia;
+					if (z.Pancerz < 0)
+					{
+						z.Hp += z.Pancerz;
+					}
+				}
+				else
+				{
+                    z.Hp -= this.Obrazenia;
+                }
+                if (z.Hp <= 0) throw new ZeroHpException("HP się skończyło! Koniec Gry");
+
+            }
+			afterHit?.Invoke(z);
 				
 		}
 
@@ -84,8 +97,10 @@ namespace BibliotekaPvK
 			int roll = rng.Next(0, 100);
 			return roll<szansaNaTrafienie;
 		}
-		public delegate void bonus();
+		public delegate void bonus(Zwierze z);
 
+		public event bonus beforeHit;
+        public event bonus afterHit;
 
-	}
+    }
 }
