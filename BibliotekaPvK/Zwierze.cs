@@ -8,6 +8,23 @@ namespace BibliotekaPvK
 {
     public abstract class Zwierze
     {
+		private int _maksymalneHp;
+
+		public int MaksymalneHp
+		{
+			get { return _maksymalneHp; }
+			set { _maksymalneHp = value; }
+		}
+
+		private int _pancerze;
+
+		public int Pancerz
+		{
+			get { return _pancerze; }
+			set { _pancerze = value; }
+		}
+
+
 		private int _hp;
 
 		public int Hp
@@ -41,6 +58,8 @@ namespace BibliotekaPvK
 		}
 
 		public abstract void Atakuj(Zwierze z);
+
+		public delegate void bonus();
 
 
 	}
