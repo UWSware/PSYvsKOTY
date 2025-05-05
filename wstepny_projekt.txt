@@ -5,6 +5,7 @@ Okna:
 	4 przyciski z bonusem (1- uzdrowienie, 2-podwojny rzut, 3-wieksza szansa na trafienie, 4-wieksze obrazenia, 5. dodatkowy pancerz na nast runde)
 	jak uda sie rzut to usmiechniety a drugi smuty i na odwrot. 
 4. Okno z napisem Zwyciestwo/Porazka i przycisk z resetem gry i idzie na 1 okno.
+--Paulina
 
 Klasy:
 1. Zwierze - abstrakcyjna ( pola: Nazwa, MaxHp, Pancerz, AktualneHp, Obrazenia, SzansaNaTrafienie
@@ -32,3 +33,5 @@ Klasy:
 
 Po stronie apki:
 1. Klasa rozszerzeniowa (dodaje jakies wysietlenie okien itp)
++obsluga wyjatku i delegatow 
+--Paulina
