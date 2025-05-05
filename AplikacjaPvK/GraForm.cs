@@ -38,7 +38,19 @@ namespace AplikacjaPvK
         {
             
         }
-
+        public void UstawZdrowie(Zwierze zwierze)
+        {
+            if (zwierze is Pies)
+            {
+                int szerokosc = (int)(pasekPsa.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
+                pasekPsa.Width = szerokosc;
+            }
+            else if (zwierze is Kot)
+            {
+                int szerokosc = (int)(pasekKota.Width * ((float)zwierze.Hp / zwierze.MaksymalneHp));
+                pasekKota.Width = szerokosc;
+            }
+        }
         private void DodajWyglad()
         {
             this.Text = "PIES vs KOT";
@@ -114,7 +126,10 @@ namespace AplikacjaPvK
             pasekKotaTlo.Region = new Region(path3);
             this.Controls.Add(pasekKotaTlo);
             pasekKota = new Panel();
-
+            pasekKota.Size = new Size((int)(pasekKotaTlo.Width * ((float)gra.Kotek.Hp / gra.Kotek.MaksymalneHp)), pasekKotaTlo.Height);
+            pasekKota.Location = new Point(0, 0);
+            pasekKota.BackColor = ColorTranslator.FromHtml("#17bf17");
+            pasekKotaTlo.Controls.Add(pasekKota);
 
             //paski zdrowia --PIES
             Panel pasekPsaTlo = new Panel();
@@ -124,7 +139,11 @@ namespace AplikacjaPvK
             pasekPsaTlo.BorderStyle = BorderStyle.None;
             pasekPsaTlo.Region = new Region(path3);
             this.Controls.Add(pasekPsaTlo);
-            pasekKota = new Panel();
+            pasekPsa = new Panel();
+            pasekPsa.Size = new Size((int)(pasekPsaTlo.Width * ((float)gra.Piesek.Hp / gra.Piesek.MaksymalneHp)), pasekPsaTlo.Height);
+            pasekPsa.Location = new Point(0, 0);
+            pasekPsa.BackColor = ColorTranslator.FromHtml("#17bf17");
+            pasekPsaTlo.Controls.Add(pasekPsa);
 
             //panel po srodku -- dla wygladu tylko
             Panel kwadrat = new Panel();
