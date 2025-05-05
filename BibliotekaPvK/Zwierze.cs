@@ -64,7 +64,7 @@ namespace BibliotekaPvK
 		public int SzansaNaTrafienie
 		{
 			get { return _szansaNaTrafienie; }
-			set { SzansaNaTrafienie = value; }
+			set { _szansaNaTrafienie = value; }
 		}
 
         protected Zwierze(int maksymalneHp, int hp, string nazwa, int obrazenia, int szansaNaTrafienie)
