@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BibliotekaPvK
@@ -68,5 +69,43 @@ namespace BibliotekaPvK
 
 
         }
-	}
+
+        public static void AktualizujWynik(bool czyKotWygral)
+        {
+            string plik = "wynik.json";
+            WynikiGry wynik;
+
+            if (File.Exists(plik))
+            {
+                string json = File.ReadAllText(plik);
+                wynik = JsonSerializer.Deserialize<WynikiGry>(json) ?? new WynikiGry();
+            }
+            else
+            {
+                wynik = new WynikiGry();
+            }
+
+            if (czyKotWygral)
+                wynik.WygraneKota++;
+            else
+                wynik.WygranePsa++;
+
+            string wynikJson = JsonSerializer.Serialize(wynik, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(plik, wynikJson);
+        }
+        public static void PokazWynik()
+        {
+            if (File.Exists("wynik.json"))
+            {
+                var json = File.ReadAllText("wynik.json");
+                var wynik = JsonSerializer.Deserialize<WynikiGry>(json);
+
+                Console.WriteLine($"Kot: {wynik.WygraneKota} | Pies: {wynik.WygranePsa}");
+            }
+            else
+            {
+                Console.WriteLine("Brak wyników.");
+            }
+        }
+    }
 }
