@@ -8,6 +8,14 @@ namespace BibliotekaPvK
 {
     public class Smiec
     {
+		private string _nazwa;
+
+		public string Nazwa
+		{
+			get { return _nazwa; }
+			set { _nazwa = value; }
+		}
+
 
 		private int _wartoscObrazen;
 
@@ -25,10 +33,11 @@ namespace BibliotekaPvK
 			set { _wartoscSzansy = value; }
 		}
 
-        public Smiec(int wartoscObrazen, int wartoscSzansy)
+        public Smiec(string nazwa, int wartoscObrazen, int wartoscSzansy)
         {
             _wartoscObrazen = wartoscObrazen;
             _wartoscSzansy = wartoscSzansy;
+			_nazwa = nazwa;
         }
     }
 }
