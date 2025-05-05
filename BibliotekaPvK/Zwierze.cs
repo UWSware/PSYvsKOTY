@@ -77,6 +77,10 @@ namespace BibliotekaPvK
             _szansaNaTrafienie = szansaNaTrafienie;
         }
 
+        protected Zwierze()
+        {
+        }
+
         public virtual void Atakuj(Zwierze z, Smiec s) {
 			int szansaKoncowa = (z.SzansaNaTrafienie + s.WartoscSzansy) / 2;
 			int obrazeniaKoncowe = z.Obrazenia + s.WartoscObrazen;
